@@ -21,6 +21,7 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcel;
@@ -138,6 +139,10 @@ public class MentionsEditText extends EditText implements TokenSource {
         final Context context = getContext();
         MentionSpanConfig.Builder builder = new MentionSpanConfig.Builder();
         if (attrs == null) {
+            builder.setMentionTextColor(Color.BLACK);
+            builder.setMentionTextBackgroundColor(Color.WHITE);
+            builder.setSelectedMentionTextColor(Color.BLACK);
+            builder.setSelectedMentionTextBackgroundColor(Color.WHITE);
             return builder.build();
         }
 

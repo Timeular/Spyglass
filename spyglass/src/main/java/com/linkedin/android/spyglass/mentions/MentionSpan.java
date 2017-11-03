@@ -14,6 +14,7 @@
 
 package com.linkedin.android.spyglass.mentions;
 
+import android.graphics.Typeface;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
@@ -89,6 +90,7 @@ public class MentionSpan extends ClickableSpan implements Parcelable {
             tp.setColor(config.NORMAL_TEXT_COLOR);
             tp.bgColor = config.NORMAL_TEXT_BACKGROUND_COLOR;
         }
+        tp.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
         tp.setUnderlineText(false);
     }
 
