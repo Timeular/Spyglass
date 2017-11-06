@@ -136,25 +136,23 @@ public class MentionsEditText extends EditText implements TokenSource {
     }
 
     private MentionSpanConfig parseMentionSpanConfigFromAttributes(@Nullable AttributeSet attrs, int defStyleAttr) {
-//        final Context context = getContext();
+        final Context context = getContext();
         MentionSpanConfig.Builder builder = new MentionSpanConfig.Builder();
-        builder.setMentionTextColor(Color.BLACK);
-        builder.setMentionTextBackgroundColor(Color.WHITE);
-        builder.setSelectedMentionTextColor(Color.BLACK);
-        builder.setSelectedMentionTextBackgroundColor(Color.WHITE);
-//            return builder.build();
-//
-//        TypedArray attributes = context.getTheme().obtainStyledAttributes(attrs, R.styleable.MentionsEditText, defStyleAttr, 0);
-//        @ColorInt int normalTextColor = attributes.getColor(R.styleable.MentionsEditText_mentionTextColor, -1);
-//        builder.setMentionTextColor(normalTextColor);
-//        @ColorInt int normalBgColor = attributes.getColor(R.styleable.MentionsEditText_mentionTextBackgroundColor, -1);
-//        builder.setMentionTextBackgroundColor(normalBgColor);
-//        @ColorInt int selectedTextColor = attributes.getColor(R.styleable.MentionsEditText_selectedMentionTextColor, -1);
-//        builder.setSelectedMentionTextColor(selectedTextColor);
-//        @ColorInt int selectedBgColor = attributes.getColor(R.styleable.MentionsEditText_selectedMentionTextBackgroundColor, -1);
-//        builder.setSelectedMentionTextBackgroundColor(selectedBgColor);
+        if (attrs == null) {
+            return builder.build();
+        }
 
-//        attributes.recycle();
+        TypedArray attributes = context.getTheme().obtainStyledAttributes(attrs, R.styleable.MentionsEditText, defStyleAttr, 0);
+        @ColorInt int normalTextColor = attributes.getColor(R.styleable.MentionsEditText_mentionTextColor, -1);
+        builder.setMentionTextColor(normalTextColor);
+        @ColorInt int normalBgColor = attributes.getColor(R.styleable.MentionsEditText_mentionTextBackgroundColor, -1);
+        builder.setMentionTextBackgroundColor(normalBgColor);
+        @ColorInt int selectedTextColor = attributes.getColor(R.styleable.MentionsEditText_selectedMentionTextColor, -1);
+        builder.setSelectedMentionTextColor(selectedTextColor);
+        @ColorInt int selectedBgColor = attributes.getColor(R.styleable.MentionsEditText_selectedMentionTextBackgroundColor, -1);
+        builder.setSelectedMentionTextBackgroundColor(selectedBgColor);
+
+        attributes.recycle();
 
         return builder.build();
     }
