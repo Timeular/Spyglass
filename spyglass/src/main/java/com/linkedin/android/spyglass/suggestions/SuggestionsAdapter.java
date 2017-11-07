@@ -138,6 +138,7 @@ public class SuggestionsAdapter extends BaseAdapter {
      * Clear all data from adapter.
      */
     public void clear() {
+        mSuggestions.clear();
         mResultMap.clear();
         notifyDataSetChanged();
     }
