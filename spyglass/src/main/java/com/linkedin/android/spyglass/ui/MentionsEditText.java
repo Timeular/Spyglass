@@ -637,6 +637,11 @@ public class MentionsEditText extends EditText implements TokenSource {
         int cursor = getSelectionStart();
         MentionsEditable text = getMentionsText();
         MentionSpan prevSpan = text.getMentionSpanEndingAt(cursor);
+        MentionSpan spanToDelete = text.getMentionSpanStartingAt(cursor);
+
+        if(after == 0 && spanToDelete != null) {
+            spanToDelete.setDisplayMode(Mentionable.MentionDisplayMode.NONE);
+        }
 
         if (count == (after + 1) && prevSpan != null) {
 
